@@ -1,0 +1,19 @@
+import React, { useState } from 'react';
+
+function Template({ data }) {
+  const [template, setTemplate] = useState('');
+
+  function handleChange(e) {
+    setTemplate(e.target.value);
+  }
+
+  return (
+    <div>
+      <label for="template">Template:</label>
+      {/* add HTML tags to display data from the 'data' prop */}
+      <code>{template}</code>
+    </div>
+  );
+}
+
+export default Template;
