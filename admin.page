@@ -1,0 +1,23 @@
+import React from 'react';
+
+const AdminPage = () => {
+  // Add admin page content and functionality here
+  return (
+    <div>
+      <h1>Admin Page</h1>
+      {/* Add your admin page content here */}
+    </div>
+  );
+}
+
+export default AdminPage;
+
+function App() {
+  return (
+    <div className="App">
+      <AdminPage />
+    </div>
+  );
+}
+
+export default App;
