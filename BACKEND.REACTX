@@ -1,0 +1,35 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(bodyParser.json());
+
+app.post('/submitForm', async (req, res) => {
+  try {
+    const { name, age, selectedBatch } = req.body;
+
+    // Basic backend validation
+    if (!name || !age || !selectedBatch) {
+      return res.status(400).json({ success: false, error: 'Incomplete data' });
+    }
+
+    // Store data in the database (Assuming MongoDB for simplicity)
+    // Implement database connection and schema based on your choice
+    // Example: const result = await AdmissionModel.create({ name, age, selectedBatch });
+
+    // Mock payment function
+    const paymentResult = CompletePayment({ name, age, selectedBatch });
+
+    // Return response to frontend based on payment result
+    res.json({ success: true, paymentResult });
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(Server is running on port ${PORT});
+});
